@@ -7,12 +7,25 @@ namespace PhoneBook
     {
         public static void Main(string[] args)
         {
-            List<Person> listOfpeople = new PhoneBookList();
+            IDictionary<decimal,string> listOfpeople = PhoneBookList();
+
+            Console.WriteLine("Enter:");
+            string userinput = Console.ReadLine();
+
+            
+
+
 
         }
-        public Person PhoneBookList()
+        public static IDictionary<decimal,string> PhoneBookList()
         {
-             
+            IDictionary<decimal, string> people = new Dictionary<decimal, string>()
+                                            {
+                                                {12345678901,"David"},
+                                                {12345678900, "Tom"},
+                                                {12312312312,"Hong"}
+                                            };
+            return people;
         }
     }
 
