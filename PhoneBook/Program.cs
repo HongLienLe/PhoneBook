@@ -5,31 +5,59 @@ namespace PhoneBook
 {
     class MainClass
     {
+
         public static void Main(string[] args)
         {
-            IDictionary<decimal,string> listOfpeople = PhoneBookList();
+            IDictionary<int, Entry> PhoneBooks = PhoneBookList();
+            string userEntry = " ";
+            int i = 0;
 
-            Console.WriteLine("Enter:");
-            string userinput = Console.ReadLine();
+
+            while (userEntry != "")
+            {
+                Console.WriteLine("Enter:");
+                userEntry = Console.ReadLine();
+                if (userEntry == "")
+                {
+                    break;
+                }
+                string[] userEntryNamePhoneNo = userEntry.Split(' ');
+                Entry newPerson = newEntry(userEntryNamePhoneNo);
+                PhoneBooks.Add(i, newPerson);
+                i++;
+
+            }
+
+            Console.WriteLine("Query:");
+
+            userEntry = Console.ReadLine();
+
 
             
 
-
+            
 
         }
-        public static IDictionary<decimal,string> PhoneBookList()
+        public static IDictionary<int, Entry> PhoneBookList()
         {
-            IDictionary<decimal, string> people = new Dictionary<decimal, string>()
-                                            {
-                                                {12345678901,"David"},
-                                                {12345678900, "Tom"},
-                                                {12312312312,"Hong"}
-                                            };
+            IDictionary<int, Entry> people = new Dictionary<int, Entry>();
+                                        
             return people;
         }
-    }
 
-    
+        public static Entry newEntry(string[] userEntry){
+
+            string name = userEntry[0];
+            string phoneNo =  userEntry[1];
+
+            Entry person = new Entry(name, phoneNo);
+
+            return person;
+
+            }
+
+
+        }
 }
 /*Task Phonebook: create a phonebook application. Initially the user can enter name and 11 digit numbers pairs.
  * If the user enters a blank line you move to phrase 2 where they can query the phone book: given an 11 digit number returns the name of a person.
