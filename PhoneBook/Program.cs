@@ -32,10 +32,20 @@ namespace PhoneBook
 
             userEntry = Console.ReadLine();
 
+            foreach (KeyValuePair<int, Entry> item in PhoneBooks)
+            {
+                if(userEntry == item.Value.name){
 
-            
+                    Console.WriteLine($"Number is {item.Value.phoneNo}");
 
-            
+                } else if (userEntry == item.Value.phoneNo){
+                    Console.WriteLine($"Name is {item.Value.name}");
+                } else {
+                    Console.WriteLine("Not there");
+                }
+
+            }
+
 
         }
         public static IDictionary<int, Entry> PhoneBookList()
@@ -48,6 +58,7 @@ namespace PhoneBook
         public static Entry newEntry(string[] userEntry){
 
             string name = userEntry[0];
+
             string phoneNo =  userEntry[1];
 
             Entry person = new Entry(name, phoneNo);
