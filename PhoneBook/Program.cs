@@ -22,9 +22,15 @@ namespace PhoneBook
                     break;
                 }
                 string[] userEntryNamePhoneNo = userEntry.Split(' ');
-                Entry newPerson = newEntry(userEntryNamePhoneNo);
-                PhoneBooks.Add(i, newPerson);
-                i++;
+
+                if (userEntryNamePhoneNo.Length == 2)
+                {
+                    Entry newPerson = newEntry(userEntryNamePhoneNo);
+                    PhoneBooks.Add(i, newPerson);
+                    i++;
+                } else {
+                    Console.WriteLine("Please enter first name, space and then number.");
+                }
 
             }
 
@@ -40,8 +46,6 @@ namespace PhoneBook
 
                 } else if (userEntry == item.Value.phoneNo){
                     Console.WriteLine($"Name is {item.Value.name}");
-                } else {
-                    Console.WriteLine("Not there");
                 }
 
             }
