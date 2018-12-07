@@ -46,6 +46,8 @@ namespace PhoneBook
 
                 } else if (userEntry == item.Value.phoneNo){
                     Console.WriteLine($"Name is {item.Value.name}");
+                } else {
+                    Console.WriteLine("Name and Number does not Exist");
                 }
 
             }
